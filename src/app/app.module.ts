@@ -1,3 +1,4 @@
+import { FirstAppService } from './service/first-app.service';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,7 +17,9 @@ import { MainPageComponent } from './main-page/main-page.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    FirstAppService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

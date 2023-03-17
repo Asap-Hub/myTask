@@ -1,4 +1,6 @@
 <p>main-page works!  {{name}}</p> 
 <input type="text" [(ngModel)]="name">
-
-<button click="name('name')">Show me</button>
+<ul  *ngIf="Names.length > 1"  >
+    <li *ngFor="let nam of Names">{{nam}}</li>
+</ul>
+<button onClick="name('name')">Show me</button>
