@@ -1,5 +1,5 @@
 import { FirstAppService } from './../service/first-app.service';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-main-page',
@@ -8,23 +8,30 @@ import { Component } from '@angular/core';
 })
 export class MainPageComponent {
  
-  private _name: string = " ";
+  @Input() _name  = " ";
 
   public Names: any;
+  
+  display: boolean = true;
 //constructors handles dependency injections
   
   constructor(service: FirstAppService) {
     this.Names = service.getAllUsers();
-    console.log(this.Names);
+    // console.log(this.Names);
   }
   get name():any {
     return this._name; 
   } 
 
  
-  set name (inputValue: string) {
+  set name(inputValue: string) {
     this._name = inputValue;
-    console.log(inputValue);
+     console.log(inputValue);
+  }
+
+  displayName() { 
+    this.display = !this.display;
+    console.log("this.Names");
   }
 
 }
