@@ -1,6 +1,31 @@
 <p>main-page works!  {{name}}</p>  
-<ul *ngIf="display">
+<ul *ngIf="display" >
     <li *ngFor="let nam of Names">{{nam}}</li>
 </ul>
-<button (click)="displayName()">Show me</button>
+<div *ngIf="display == true; then courses else noCourses">
+
+</div>
+<!-- for rending the no courses template -->
+<ng-template #noCourses>
+    No Courses Available
+</ng-template>
+<!-- For rending courses template -->
+<ng-template #courses>
+    Courses Available
+</ng-template>
+<div *ngIf="display == true; then showMe else hideMe">
+    
+</div>
+<ng-template #showMe>
+    <button  (click)="displayName()">
+        Hide Me
+        </button> 
+</ng-template>
+<ng-template #hideMe>
+    <button  (click)="displayName()">
+        Hide Me
+        </button> 
+</ng-template>
+ 
+
  
