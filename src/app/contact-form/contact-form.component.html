@@ -1,0 +1,14 @@
+
+<form>
+ <div  class="Form-Group">
+    <label for="email">Email</label>
+    <input type="text" class="form-control" id="email" ngModel name="email" #email = "ngModel" (change)="state(email)">
+ </div>
+ 
+ <div class="form-group">
+    <label for="comment">Comment</label>
+     <textarea cols="30" rows="10" class="form-control"></textarea>
+ </div>
+
+ <button class="btn btn-primary">Submit</button>
+</form>
