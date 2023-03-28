@@ -1,5 +1,5 @@
 import { FirstAppService } from './../service/first-app.service';
-import { Component, Input } from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-main-page',
