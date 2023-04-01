@@ -1,19 +1,39 @@
 
-<form>
- <div  class="Form-Group">
-    <label for="email">Email</label>
-    <input type="text" class="form-control" id="email" required ngModel minlength="3" maxlength="10" pattern="Asap"
-     name="email" #email = "ngModel" (change)="state(email)">
-    <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
-      <div  *ngIf="['email.errors.minlength']">email is required</div>
-      <div *ngIf="['email.errors.pattern']">Patten is invalid</div>
-    </div>
- </div>
- 
- <div class="form-group">
-    <label for="comment">Comment</label>
-     <textarea cols="30" rows="10" class="form-control"></textarea>
- </div>
+<form  #f="ngForm" (ngSubmit)="submit(f)">
+   <div ngModelGroup="Commentname" #CommentForm ="ngModelGroup">
+      <div class="Form-Group">
+         <label for="email">Email</label>
+         <input type="text" class="form-control" id="email" required ngModel minlength="3" maxlength="10" pattern="Asap"
+         name="email" #email = "ngModel" (change)="state(email)">
+         <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+            <div  *ngIf="['email.errors.minlength']">email is required</div>
+            <div *ngIf="['email.errors.pattern']">Patten is invalid</div>
+         </div>
+      </div>
+      
+      <div class="form-group">
+         <label for="comment">Comment</label>
+         <textarea cols="30" rows="10" class="form-control" name="comment" ngModel></textarea>
+      </div>
+      <div class="Form-Group m-2" >
+         <label for="account">Account Packages</label>
+            <select ngModel name="option" class="form-control" id="option">
+               <option value="" >----</option>
+               <option *ngFor="let option of options" [value]="option.id">{{option.name}}</option>
+            </select>
+      </div>
+      <div class="Form-Group">
+      <label>
+         <input type="checkbox" name="checkBox" ngModel>
+         Subscribe to our feedbacks
+      </label>
+      </div>
+         <p>
+            {{f.value | json}}
+         </p>
+      <button class="btn btn-primary P-l5 m-2" type="submit"  [disabled]="!f.valid">Submit</button>
+   </div>
+   <p >
 
- <button class="btn btn-primary">Submit</button>
+   </p>
 </form>
