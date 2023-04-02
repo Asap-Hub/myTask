@@ -1,7 +1,7 @@
 
 <form  #f="ngForm" (ngSubmit)="submit(f)">
    <div ngModelGroup="Commentname" #CommentForm ="ngModelGroup">
-      <div class="Form-Group">
+      <div class="Form-Group pb-4">
          <label for="email">Email</label>
          <input type="text" class="form-control" id="email" required ngModel minlength="3" maxlength="10" pattern="Asap"
          name="email" #email = "ngModel" (change)="state(email)">
@@ -11,27 +11,29 @@
          </div>
       </div>
       
-      <div class="form-group">
+      <div class="form-group pb-4">
          <label for="comment">Comment</label>
          <textarea cols="30" rows="10" class="form-control" name="comment" ngModel></textarea>
       </div>
-      <div class="Form-Group m-2" >
+
+      <div class="Form-Group pb-2" >
          <label for="account">Account Packages</label>
             <select ngModel name="option" class="form-control" id="option">
                <option value="" >----</option>
                <option *ngFor="let option of options" [value]="option.id">{{option.name}}</option>
             </select>
       </div>
+
       <div class="Form-Group">
-      <label>
-         <input type="checkbox" name="checkBox" ngModel>
-         Subscribe to our feedbacks
-      </label>
+         <label>
+            <input type="checkbox" name="checkBox" ngModel>
+            Subscribe to our feedbacks
+         </label>
       </div>
          <p>
             {{f.value | json}}
          </p>
-      <button class="btn btn-primary P-l5 m-2" type="submit"  [disabled]="!f.valid">Submit</button>
+      <button class="btn btn-primary  pb-2" type="submit"  [disabled]="!f.valid">Submit</button>
    </div>
    <p >
 
